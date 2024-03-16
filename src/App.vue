@@ -68,11 +68,13 @@
         break;
     }
 
-    if (game1.value == maxGames.value) {
-      game1.value = 0
-      game2.value = 0
-      set1.value++
-      console.log("Game and Set increased") // Same as the points, both must be set to 0 again.
+    switch (game1.value) {
+      case maxGames.value:
+        set1.value++
+        game1.value = 0
+        game2.value = 0
+        break;
+
     }
     if (set1.value == 2) {
       isFinished = true
@@ -106,11 +108,13 @@
         break;
     }
 
-    if (game2.value == maxGames.value) {
-      game2.value = 0
-      game1.value = 0
-      set2.value++
-      console.log("Game and Set increased") // Same as the points, both must be set to 0 again.
+    switch (game2.value) {
+      case maxGames.value:
+        set2.value++
+        game1.value = 0
+        game2.value = 0
+        break;
+
     }
     if (set2.value == 2) {
       isFinished = true
