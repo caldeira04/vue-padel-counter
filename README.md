@@ -14,6 +14,10 @@ There's still a flaw that doesn't keep the game running when the tie-break score
 
 My main thought was to make the scoreboard as closest to the WPT one as possible. But I'm a lazy designer, so God knows if I'll even do it.
 
+### Customizability
+
+Not all games have 2 sets of 6 games each, and not all tie-breaks end in 7. For the future, I plan on adding a way of changing this.
+
 ## Project Setup
 
 ```sh
