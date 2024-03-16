@@ -44,21 +44,30 @@
 
   // Creation of the functions responsible for increasing the scores of each player
   function increaseScore1() {
-    if (score1.value == 0) {
-      score1.value = 15
-      console.log("Score increased")
-    } else if (score1.value == 15) {
-      score1.value = 30
-      console.log("Score increased")
-    } else if (score1.value == 30) {
-      score1.value = 40
-      console.log("Score increased")
-    } else {
-      score1.value = 0
-      score2.value = 0
-      game1.value++
-      console.log("Score and game increased") // When a game is won, both the points must be returned to 0.
+    switch (score1.value) {
+      case 0:
+        score1.value = 15
+        console.log("Score increased")
+        break;
+      
+      case 15:
+        score1.value = 30
+        console.log("Score increased")
+        break;
+
+      case 30:
+        score1.value = 40
+        console.log("Score increased")
+        break;
+
+      case 40:
+        score1.value = 0
+        score2.value = 0
+        game1.value++
+        console.log("Game increased")
+        break;
     }
+
     if (game1.value == maxGames.value) {
       game1.value = 0
       game2.value = 0
@@ -73,23 +82,30 @@
   
   // Pretty much a copypaste from the above function. Anyway, if I figure out how to optimize it, I'm doin it.
   function increaseScore2() {
-    if (score2.value == 0) {
-      score2.value = 15
-      console.log("Score increased")
-    } else if (score2.value == 15) {
-      score2.value = 30
-      console.log("Score increased")
-    } else if (score2.value == 30) {
-      score2.value = 40
-      console.log("Score increased")
-    } else if (tieBreak) {
-      score2.value++
-    } else {
-      score2.value = 0
-      score1.value = 0
-      game2.value++
-      console.log("Score and game increased") // When a game is won, both the points must be returned to 0.
+    switch (score2.value) {
+      case 0:
+        score2.value = 15
+        console.log("Score increased")
+        break;
+      
+      case 15:
+        score2.value = 30
+        console.log("Score increased")
+        break;
+
+      case 30:
+        score2.value = 40
+        console.log("Score increased")
+        break;
+
+      case 40:
+        score1.value = 0
+        score2.value = 0
+        game2.value++
+        console.log("Game increased")
+        break;
     }
+
     if (game2.value == maxGames.value) {
       game2.value = 0
       game1.value = 0
