@@ -1,14 +1,18 @@
 # vue-padel-counter
 
-This template should help get you started developing with Vue 3 in Vite.
+## Functionalities of the application
 
-## Recommended IDE Setup
+Mainly, my projects are made so I can make my life easier. Tracking stats of important matches live can get hard, specially with all the emotion happening at the moment. So, I developed this from scratch as practice. Feel free to check it, use it and make changes to it.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Todos
 
-## Customize configuration
+### Work up on the tie-break system.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+There's still a flaw that doesn't keep the game running when the tie-break score is 6x6 (which IRL must have a 2 point difference).
+
+### Styling
+
+My main thought was to make the scoreboard as closest to the WPT one as possible. But I'm a lazy designer, so God knows if I'll even do it.
 
 ## Project Setup
 
