@@ -1,6 +1,6 @@
 <script setup>
   import {onMounted, ref, watch} from "vue";
-  // Creation of all the variables needed. unfortunately, i don´t know yet how to optimize this :(
+  // Creation of all the variables needed. Unfortunately, i don´t know yet how to optimize this :(
   const score1 = ref(0)
   const score2 = ref(0)
   const game1 = ref(0)
@@ -10,8 +10,15 @@
   const maxGames = ref(6)
   let tieBreak = false
   let isFinished
+  
+  onMounted(() => {
+    startGame()
+  })
+  
+  
+  // Declarations of the methods used for most of the program functionalities.
 
-
+  // Function responsible for resetting the settings on the game when a new game is started.
   function startGame() {
     console.clear()
     console.log("Game started")
@@ -26,23 +33,15 @@
 
   }
 
-  onMounted(() => {
-    startGame()
-    if (game1.value == 5 && game2.value == 5){
-      console.log("Now, the game must go into 7-5 or tie-break!")
-      maxGames.value == 7
+  // Function responsible for checking if a game is tied at 5x5. If it is, automatically adjusts for the game to end on 7x5
+  function testForTie() {
+    if (game1.value == 5 && game2.value == 5) {
+      console.log("The game hit a soft tie and must end by a 2 game advantage or tie-break on 6-6")
+      maxGames.value = 7
     }
-    if (game1.value == 6 && game2.value == 6) {
-      console.log("Tie-break started!")
-      tieBreak = true
-    }
-    if (tieBreak) {
-      score1.value++
-    }
-  })
+  }
 
-
-  // Creation of the functions responsible for increasing the scores of each player
+  // Function responsible for increasing each player's points.
   function increaseScore1() {
     switch (score1.value) {
       case 0:
@@ -73,6 +72,7 @@
         set1.value++
         game1.value = 0
         game2.value = 0
+        console.log("Set increased")
         break;
 
     }
@@ -113,6 +113,7 @@
         set2.value++
         game1.value = 0
         game2.value = 0
+        console.log("Set increased")
         break;
 
     }
@@ -127,6 +128,7 @@
 <template>
   <main>
     <div>
+      <!-- More info on the functions on the <script> section. -->
       <button @click="startGame()">Start game</button>
       <table>
         <tr> <!-- First double scoreboard -->
@@ -134,21 +136,21 @@
           <td class="num">{{ set1 }}</td>
           <td class="num">{{ game1 }}</td>
           <td class="num">{{ score1 }}</td>
-          <td class="num"><button class="score" @click="increaseScore1()">+</button></td>
+          <td class="num"><button class="score" @click="increaseScore1(); testForTie()">+</button></td>
         </tr>
         <tr> <!-- Second double scoreboard -->
           <td class="name">DIN/STU</td>
           <td class="num">{{ set2 }}</td>
           <td class="num">{{ game2 }}</td>
           <td class="num">{{ score2 }}</td>
-          <td class="num"><button class="score" @click="increaseScore2()">+</button></td>
+          <td class="num"><button class="score" @click="increaseScore2(); testForTie()">+</button></td>
         </tr>
       </table>
     </div>
   </main>
 </template>
 
-<style scoped>
+<style scoped> /* Just some provisory styling for it to not look so simple. */
   main {
     font-family: monospace;
     zoom: 175%;
