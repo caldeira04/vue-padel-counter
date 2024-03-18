@@ -18,6 +18,10 @@ My main thought was to make the scoreboard as closest to the WPT one as possible
 
 Not all matches have 2 sets of 6 games each, and not all tie-breaks end in 7. For the future, I plan on adding a way of changing this.
 
+### Storing past sets
+
+In the official games, instead of displaying how many sets a player won, it shows the score (in games format) for that set. I have plans of doing this too.
+
 ## Project Setup
 
 ```sh
