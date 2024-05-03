@@ -243,7 +243,7 @@
       </div>
     </form>
     
-      <div v-show="isReady">
+      <div>
         <!-- More info on the functions on the <script> section. -->
         <table>
           <tr> <!-- First double scoreboard -->
