@@ -6,6 +6,14 @@ Mainly, my projects are made so I can make my life easier. Tracking stats of imp
 
 ## Todos
 
+### Modularization
+
+Separating the application in components.
+
+### Optimization of variables
+
+What the name says. There are too many repeated variables and that is saddening me a bit. Top priority right now.
+
 ### Work up on the tie-break system.
 
 There's still a flaw that doesn't keep the game running when the tie-break score is 6x6 (which IRL must have a 2 point difference).
