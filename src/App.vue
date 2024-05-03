@@ -15,12 +15,12 @@
   let tieBreak = false
   let softTie = false
   let isReady = false
-  const names = ref([{
-    d1j1: '',
-    d1j2: '',
-    d2j1: '',
-    d2j2: '',
-  }])
+  const names = ref({
+    d1j1: ''.toUpperCase().substring(0,3),
+    d1j2: ''.toUpperCase().substring(0,3),
+    d2j1: ''.toUpperCase().substring(0,3),
+    d2j2: ''.toUpperCase().substring(0,3),
+  })
 
 // Declarations of the methods used for most of the program functionalities.
 
@@ -229,8 +229,8 @@
 
 <template>
   <main>
-    <form @submit.prevent="setParams">
-      <div>
+    <form @submit.prevent="setParams" class="form__container">
+      <div class="form__div">
         <h1>Set-up</h1>
         <p>
           <p>Dupla 1</p>
@@ -268,14 +268,14 @@
         <!-- More info on the functions on the <script> section. -->
         <table>
           <tr> <!-- First double scoreboard -->
-            <td class="name">{{ names.d1j1.substr(0,3).toUpperCase() }} / {{ names.d1j2.substr(0,3).toUpperCase() }}</td>
+            <td class="name">{{ names.d1j1}} / {{ names.d1j2 }}</td>
             <td class="num">{{ set1 }}</td>
             <td class="num">{{ game1 }}</td>
             <td class="num">{{ score1 }}</td>
             <td class="num"><button class="score" @click="increaseScore1();">+</button></td>
           </tr>
           <tr> <!-- Second double scoreboard -->
-            <td class="name">{{ names.d2j1.substr(0,3).toUpperCase() }} / {{ names.d2j2.substr(0,3).toUpperCase() }}</td>
+            <td class="name">{{ names.d2j1 }} / {{ names.d2j2 }}</td>
             <td class="num">{{ set2 }}</td>
             <td class="num">{{ game2 }}</td>
             <td class="num">{{ score2 }}</td>
@@ -311,5 +311,15 @@
   .name {
     width: 100px;
     height: 20px;
+  }
+
+  .form__container {  
+    width: 500px;
+
+  }
+
+  .form__div {
+    display: flex;
+    flex-flow: row wrap;
   }
 </style>
